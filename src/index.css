@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background-deep: #020203;
+  --color-background-base: #050506;
+  --color-background-elevated: #0a0a0c;
+  
+  --color-foreground: #EDEDEF;
+  --color-foreground-muted: #8A8F98;
+  --color-foreground-subtle: rgba(255, 255, 255, 0.6);
+  
+  --color-accent: #5E6AD2;
+  --color-accent-bright: #6872D9;
+  --color-accent-glow: rgba(94, 106, 210, 0.3);
+
+  --background-image-gradient-radial-base: radial-gradient(ellipse at top, #0a0a0f 0%, #050506 50%, #020203 100%);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background-base);
+    color: var(--color-foreground);
+    overflow-x: hidden;
+    margin: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-background-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a35;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
