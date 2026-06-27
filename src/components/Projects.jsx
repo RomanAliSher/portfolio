@@ -16,7 +16,6 @@ const PROJECTS = [
     description: 'Enterprise E-commerce App made for purchasing Stickers as a part of my course on Udemy.',
     tech: ['React', 'SpringBoot', 'MySQL'],
     icon: <Film className="w-5 h-5 sm:w-6 sm:h-6 text-[#8A8F98]" />
-    // Notice: No link/github here. The code below will safely hide the icons.
   },
   {
     title: 'Spring Auth',
@@ -30,28 +29,38 @@ const PROJECTS = [
 export default function Projects() {
   return (
     <section className="relative z-10 container mx-auto py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-5xl border-t border-white/[0.06]">
-      <div className="mb-8 sm:mb-12">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-8 sm:mb-12"
+      >
         <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-transparent bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text">
           Featured Work
         </h2>
         <p className="mt-3 sm:mt-4 text-sm sm:text-base text-foreground-muted">Recent architectures and productions.</p>
-      </div>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {PROJECTS.map((project, i) => (
-          <ProjectCard key={i} project={project} />
+          <ProjectCard key={i} project={project} index={i} />
         ))}
       </div>
     </section>
   );
 }
 
-function ProjectCard({ project }) {
+function ProjectCard({ project, index }) {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   return (
     <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className="group relative rounded-2xl border border-white/[0.06] bg-[#0A0A0C]/50 p-6 sm:p-8 shadow-[0_2px_20px_rgba(0,0,0,0.4)] overflow-hidden flex flex-col h-full"
       onMouseMove={(e) => {
         const { left, top } = e.currentTarget.getBoundingClientRect();
@@ -62,9 +71,7 @@ function ProjectCard({ project }) {
     >
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition duration-300 group-hover:opacity-100"
-        style={{
-          background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(94, 106, 210, 0.15), transparent 80%)`,
-        }}
+        style={{ background: useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, rgba(94, 106, 210, 0.15), transparent 80%)` }}
       />
       
       <div className="relative z-10 flex flex-col h-full">
@@ -73,7 +80,6 @@ function ProjectCard({ project }) {
             {project.icon}
           </div>
           <div className="flex gap-3">
-            {/* Conditional Rendering: Only show icons if the link exists */}
             {project.github && (
               <a href={project.github} target="_blank" rel="noreferrer" className="text-foreground-muted hover:text-white transition-colors">
                 <Github className="w-4 h-4 sm:w-5 sm:h-5" />

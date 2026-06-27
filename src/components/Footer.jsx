@@ -35,13 +35,13 @@ export default function Footer() {
           <div>
             <h3 className="text-base sm:text-lg font-semibold text-foreground mb-3 sm:mb-4">Connect</h3>
             <div className="flex flex-col gap-3">
-              <a href="#" className="group flex items-center gap-3 text-xs sm:text-sm text-foreground-muted hover:text-accent transition-colors">
+              <a href="https://github.com/RomanAliSher" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-xs sm:text-sm text-foreground-muted hover:text-accent transition-colors">
                 <Github className="w-4 h-4 sm:w-5 sm:h-5 text-white/30 group-hover:text-accent transition-colors" /> GitHub
               </a>
-              <a href="#" className="group flex items-center gap-3 text-xs sm:text-sm text-foreground-muted hover:text-accent transition-colors">
+              <a href="https://www.linkedin.com/in/roman-ali-a4a688343/" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-xs sm:text-sm text-foreground-muted hover:text-accent transition-colors">
                 <Linkedin className="w-4 h-4 sm:w-5 sm:h-5 text-white/30 group-hover:text-accent transition-colors" /> LinkedIn
               </a>
-              <a href="mailto:your.email@example.com" className="group flex items-center gap-3 text-xs sm:text-sm text-foreground-muted hover:text-accent transition-colors">
+              <a href="mailto:rumanali89011@gmail.com" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-3 text-xs sm:text-sm text-foreground-muted hover:text-accent transition-colors">
                 <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-white/30 group-hover:text-accent transition-colors" /> Email Me
               </a>
             </div>

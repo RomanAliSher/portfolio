@@ -6,7 +6,7 @@ const TIMELINE = [
     type: 'work',
     role: 'Full Stack Engineer',
     company: 'SelfWork & Projects',
-    date: '2024 - Present',
+    date: '2023 - Present',
     description: 'Architecting scalable cloud applications, deploying SaaS platforms, and designing precision user interfaces using React and Spring Boot.',
     icon: <Briefcase className="w-4 h-4 text-accent" />
   },
@@ -14,7 +14,7 @@ const TIMELINE = [
     type: 'work',
     role: 'Software Engineer Intern',
     company: 'DevWeekends',
-    date: 'Summer 2025',
+    date: 'Summer 2022',
     description: 'Learned best practices in software development, gained knowledge in full-stack projects and DSA, and gained experience in agile methodologies.',
     icon: <Briefcase className="w-4 h-4 text-accent" />
   },
@@ -22,7 +22,7 @@ const TIMELINE = [
     type: 'education',
     role: 'BS Information Technology',
     company: 'University of Education (UE), Lahore',
-    date: 'Graduating @28`',
+    date: 'Graduating Soon',
     description: 'Current CGPA: 3.64. Focusing on software architecture, cloud computing, and advanced data structures.',
     icon: <GraduationCap className="w-4 h-4 text-[#8A8F98]" />
   }
@@ -31,41 +31,45 @@ const TIMELINE = [
 export default function Experience() {
   return (
     <section className="relative z-10 container mx-auto py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 max-w-4xl border-t border-white/[0.06]">
-      <div className="mb-10 sm:mb-16">
+      {/* Scroll Animated Header */}
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="mb-10 sm:mb-16"
+      >
         <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-transparent bg-gradient-to-b from-white via-white/95 to-white/70 bg-clip-text">
           Journey
         </h2>
         <p className="mt-3 sm:mt-4 text-sm sm:text-base text-foreground-muted">Experience and educational background.</p>
-      </div>
+      </motion.div>
 
       <div className="space-y-12">
         {TIMELINE.map((item, i) => (
-          <div key={i} className="relative pl-10 md:pl-0">
-            
-            {/* Mobile Vertical Line */}
+          <motion.div 
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="relative pl-10 md:pl-0"
+          >
+            {/* Scroll Animated Timeline Items comment moved here safely */}
             <div className="md:hidden absolute left-5 top-2 bottom-[-48px] w-px bg-white/[0.06]" />
             
-            {/* Desktop Grid - Gap increased to 12 (48px) to protect the date text */}
             <div className="md:grid md:grid-cols-4 md:gap-12 items-start">
-              
-              {/* Date Column (Desktop) */}
-              {/* Added whitespace-nowrap so "2023 - Present" never breaks into two lines */}
               <div className="hidden md:block col-span-1 text-right mt-1 text-sm font-mono text-foreground-subtle whitespace-nowrap">
                 {item.date}
               </div>
 
-              {/* Content Column */}
               <div className="col-span-3 relative">
-                
-                {/* Desktop Vertical Line (Centered perfectly in the 48px gap) */}
                 <div className="hidden md:block absolute -left-6 top-2 bottom-[-48px] w-px bg-white/[0.06]" />
 
-                {/* Glowing Dot - Mathematically aligned to the lines, far away from text */}
                 <div className="absolute -left-8 md:-left-9 top-1 flex items-center justify-center w-6 h-6 rounded-full bg-background-base border border-white/[0.1] shadow-[0_0_10px_rgba(94,106,210,0.2)]">
                   <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                 </div>
 
-                {/* Mobile Date */}
                 <div className="md:hidden text-xs font-mono text-accent mb-2">{item.date}</div>
                 
                 <h3 className="text-xl font-semibold text-foreground flex items-center gap-2">
@@ -79,7 +83,7 @@ export default function Experience() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
